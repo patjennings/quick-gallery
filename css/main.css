@@ -1,0 +1,59 @@
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 64px;
+}
+
+.overlay-visible{
+    overflow: hidden;
+}
+
+.cell{
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+    margin: 2px;
+}
+.cell .thumb{
+    width: 320px;
+    transition: all 0.15s ease-in-out;
+}
+.cell:hover .thumb{
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+.cell .source{
+    display: none;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.overlay img{
+    height: 95%;
+    /*margin: 0 auto;*/
+    margin-top: 32px;
+}
+.overlay .description{
+    font-family: Arial;
+    font-size: 13px;
+    height: 128px;
+    color: #CCC;
+    margin: 8px;
+    position: fixed;
+    top: 0;
+    opacity: 0.25;
+
+    transition: all 0.25s ease-in-out;
+}
+
+.overlay .description:hover{
+    opacity: 1;
+}
