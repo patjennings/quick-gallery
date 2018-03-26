@@ -10,17 +10,30 @@ To `/files`
 
 ## Generate thumbnails
 Aller dans files
+```bash
+$ cd files
+```
 
-    $ cd files
+Remplacer tous les espaces par des underscores
+```bash
+$ rename 's/\ /_/g' *
+```
 
 Créer un dossier `thumbs`
-
-    $ mkdir thumbs
+```bash
+$ mkdir thumbs
+```
 
 Traiter tous les fichiers image
+```bash
+$ for file in *.{jpg,jpeg,JPG,png,PNG,bmp,BMP};do convert $file -thumbnail 480x480^ -gravity center -extent 480x480 thumbs/$file; done
+```
 
-    $ for file in *.{jpg,jpeg,JPG,png,PNG,bmp,BMP};do convert $file -thumbnail 480x480^ -gravity center -extent 480x480 thumbs/$file; done
-
+## Lister images et créer json
+```bash
+$ echo "{"; for file in *.{jpg,jpeg,JPG,png,PNG,bmp,BMP};do echo "\"n\":\"$file\","; done; echo "}"
+```
+> Note : cette commande est sensée remplacer la partie PHP + renseignement variable Js dessous
 
 ## JS
 - Ouvrir `listFiles2Json.php` dans le navigateur
@@ -30,4 +43,4 @@ Traiter tous les fichiers image
 ## Améliorations
 - Automatiser le listFiles2Json et populer automatiquement la variable dans data.json
 - Créer un fichier json avec le json généré à l'intérieur
-- lister les fichiers en bash ? 
+- lister les fichiers en bash ?
